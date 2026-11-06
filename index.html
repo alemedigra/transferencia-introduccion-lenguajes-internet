@@ -1,41 +1,40 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Web - Inicio</title>
-    <!-- Enlace a tu archivo de estilos CSS (opcional pero recomendado) -->
-    <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-
-    <!-- Encabezado de la página -->
-    <header>
-        <h1>Bienvenido a mi sitio web</h1>
-        <!-- Navegación con tus rutas/páginas -->
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <!-- Si manejas un CRUD o listados, puedes agregar enlaces aquí -->
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Contenido principal -->
-    <main>
-        <section>
-            <h2>Sección Principal</h2>
-            <p>Esta es la página de inicio de mi proyecto para la universidad.</p>
-        </section>
-    </main>
-
-    <!-- Pie de página -->
-    <footer>
-        <p>&copy; 2026 - Mi Proyecto Web</p>
-    </footer>
-
-    <!-- Enlace a tu archivo de JavaScript (opcional para interactividad o CRUD) -->
-    <script src="js/main.js"></script>
-</body>
-</html>
+<!DOCTYPE html> <!-- Declara que el documento es HTML5 -->
+<html lang="es"> <!-- Raíz del documento, idioma español -->
+<head> <!-- Abre la cabecera con metadatos -->
+  <meta charset="utf-8"> <!-- Codificación que admite tildes y ñ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Hace la página adaptable a móviles -->
+  <title>María José González Benavídez | Hoja de vida</title> <!-- Título de la pestaña -->
+  <link rel="stylesheet" href="css/styles.css"> <!-- Enlaza la hoja de estilos externa -->
+</head> <!-- Cierra la cabecera -->
+<body> <!-- Abre el contenido visible -->
+  <div class="menu"> <!-- Contenedor de la barra de navegación fija -->
+    <a href="index.html">Inicio</a> <!-- Enlace a esta misma página -->
+    <a href="contenido.html">Perfil completo</a> <!-- Enlace a la página interna de contenido -->
+    <a href="#contacto">Contacto</a> <!-- Enlace de anclaje a la sección de contacto -->
+  </div> <!-- Cierra la barra -->
+  <div class="portada"> <!-- Contenedor de presentación -->
+    <img class="foto" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23F2A541'/%3E%3Ctext x='40' y='52' font-size='28' text-anchor='middle' fill='%2312312E'%3EMJGB%3C/text%3E%3C/svg%3E" alt="Avatar con las iniciales MJGB"> <!-- Imagen con texto alternativo -->
+    <div> <!-- Contenedor del texto de presentación -->
+      <h1>María José González Benavídez</h1> <!-- Título principal -->
+      <h2>Estudiante de <span class="resalte">Ingeniería de Software</span></h2> <!-- Subtítulo con span resaltado -->
+      <p>Construyo sitios web <strong>claros y accesibles</strong> y me interesa <em>aprender en equipo</em>.</p> <!-- Texto con negrita y cursiva -->
+    </div> <!-- Cierra el texto -->
+  </div> <!-- Cierra la portada -->
+  <div class="seccion"> <!-- Sección de habilidades -->
+    <h3>Lo que sé hacer</h3> <!-- Título de la sección -->
+    <ul> <!-- Lista no ordenada -->
+      <li>Estructurar páginas con HTML</li> <!-- Elemento de lista -->
+      <li>Dar estilo con CSS</li> <!-- Elemento de lista -->
+      <li>Publicar sitios con GitHub Pages</li> <!-- Elemento de lista -->
+    </ul> <!-- Cierra la lista -->
+    <a class="boton" href="contenido.html">Ver perfil completo</a> <!-- Enlace con apariencia de botón -->
+  </div> <!-- Cierra la sección -->
+  <hr> <!-- Línea divisoria -->
+  <div class="seccion" id="contacto"> <!-- Sección de contacto con id para el anclaje -->
+    <h3>Contacto</h3> <!-- Título de la sección -->
+    <p>Correo: <a href="mailto:correo@ejemplo.com">correo@ejemplo.com</a></p> <!-- Enlace de correo; reemplazar por el real -->
+  </div> <!-- Cierra la sección -->
+  <div class="aviso">Versión impresa de la hoja de vida.</div> <!-- Solo visible al imprimir -->
+  <div class="pie">Fundación Universitaria Compensar</div> <!-- Pie de página -->
+</body> <!-- Cierra el cuerpo -->
+</html> <!-- Cierra el documento -->
