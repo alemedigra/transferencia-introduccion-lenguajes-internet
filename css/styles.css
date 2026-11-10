@@ -1,0 +1,301 @@
+/* =========================================================
+   Hoja de estilos - transferencia-introduccion-lenguajes-internet
+   Compartida por index.html y contenido.html
+   ========================================================= */
+
+/* ---------- 1. Variables (colores y medidas) ---------- */
+:root {
+  --verde: #12312E;        /* color principal, texto y menú */
+  --verde-medio: #1F5750;  /* hover y encabezados de tabla */
+  --ambar: #F2A541;        /* acento */
+  --ambar-suave: #FCE9C8;  /* fondo de chips y resaltes */
+  --fondo: #F2F6F5;        /* fondo de la página */
+  --blanco: #FFFFFF;       /* fondo de tarjetas */
+  --texto-suave: #4A6560;  /* texto secundario */
+  --borde: #C9D6D2;        /* líneas y bordes */
+  --ancho: 860px;          /* ancho máximo del contenido */
+  --alto-menu: 56px;       /* alto de la barra fija */
+}
+
+/* ---------- 2. Reinicio básico ---------- */
+* {
+  box-sizing: border-box; /* el padding no agranda los elementos */
+}
+
+html {
+  scroll-behavior: smooth;                 /* el enlace #contacto se desplaza suave */
+  scroll-padding-top: calc(var(--alto-menu) + 16px); /* evita que el menú tape el destino */
+}
+
+body {
+  margin: 0;
+  padding-top: var(--alto-menu); /* espacio para el menú fijo */
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--verde);
+  background: var(--fondo);
+}
+
+/* ---------- 3. Tipografía ---------- */
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif; /* títulos con serif */
+  line-height: 1.2;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem); /* se adapta al ancho de pantalla */
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 400;
+  color: var(--texto-suave);
+  margin-top: 0.4rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin: 0.8rem 0 0;
+  max-width: 60ch; /* líneas cómodas de leer */
+}
+
+strong { font-weight: 700; }
+em { font-style: italic; }
+
+a {
+  color: var(--verde-medio);
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--verde); }
+
+/* Texto resaltado dentro del subtítulo */
+.resalte {
+  background: var(--ambar-suave);
+  color: var(--verde);
+  padding: 0 0.3em;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* ---------- 4. Menú de navegación fijo ---------- */
+.menu {
+  position: fixed;   /* se queda arriba al hacer scroll */
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--alto-menu);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--verde);
+}
+
+.menu a {
+  color: var(--blanco);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-bottom: 3px solid transparent;
+}
+
+.menu a:hover {
+  background: var(--verde-medio);
+  border-bottom-color: var(--ambar);
+}
+
+/* Página actual: solo la barra ámbar, sin fondo (el hover agrega el fondo) */
+.menu a[aria-current="page"] {
+  border-bottom-color: var(--ambar);
+}
+
+/* Si la primera tarjeta va justo después del menú (contenido.html), separarla */
+.menu + .seccion {
+  margin-top: 2rem;
+}
+
+/* ---------- 5. Portada (index.html) ---------- */
+.portada {
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.foto {
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;          /* la imagen no se aplasta */
+  border-radius: 50%;
+  border: 6px solid var(--ambar);
+  object-fit: cover;
+}
+
+/* ---------- 6. Secciones ---------- */
+.seccion {
+  max-width: var(--ancho);
+  margin: 0 auto 1.5rem;
+  padding: 1.75rem 1.5rem;
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-left: 6px solid var(--ambar); /* marca lateral de cada sección */
+  border-radius: 8px;
+}
+
+/* Los dos bloques de ancho máximo no tocan los bordes en pantallas medianas */
+@media (max-width: 920px) {
+  .seccion { margin-left: 1rem; margin-right: 1rem; }
+}
+
+/* Listas */
+ul, ol {
+  margin: 0 0 1rem;
+  padding-left: 1.4rem;
+}
+
+li { margin-bottom: 0.4rem; }
+
+li::marker { color: var(--ambar); font-weight: 700; }
+
+/* ---------- 7. Botón (enlace con apariencia de botón) ---------- */
+.boton {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.7rem 1.4rem;
+  background: var(--verde);
+  color: var(--blanco);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.boton:hover {
+  background: var(--ambar);
+  color: var(--verde);
+}
+
+/* ---------- 8. Etiquetas (chips de habilidades) ---------- */
+.etiqueta {
+  display: inline-block;
+  margin: 0 0.4rem 0.5rem 0;
+  padding: 0.25rem 0.85rem;
+  background: var(--ambar-suave);
+  color: var(--verde);
+  border: 1px solid var(--ambar);
+  border-radius: 999px; /* forma de píldora */
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* ---------- 9. Tabla (contenido.html) ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--borde);
+}
+
+thead th {
+  background: var(--verde);
+  color: var(--blanco);
+}
+
+tbody tr:hover { background: var(--ambar-suave); }
+
+/* ---------- 10. Línea divisoria ---------- */
+hr {
+  max-width: var(--ancho);
+  margin: 2rem auto;
+  border: 0;
+  border-top: 2px dashed var(--borde);
+}
+
+/* ---------- 11. Aviso de impresión y pie ---------- */
+.aviso {
+  display: none; /* en pantalla no se ve; solo al imprimir */
+}
+
+.pie {
+  margin-top: 3rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  background: var(--verde);
+  color: var(--blanco);
+  font-size: 0.95rem;
+}
+
+/* ---------- 12. Responsive (celulares) ---------- */
+@media (max-width: 600px) {
+  .portada {
+    flex-direction: column; /* foto arriba, texto abajo */
+    text-align: center;
+    padding-top: 2.5rem;
+  }
+
+  .foto { width: 130px; height: 130px; }
+
+  .menu { gap: 0; }
+  .menu a { padding: 0.5rem 0.6rem; font-size: 0.85rem; }
+
+  .seccion { padding: 1.25rem 1rem; }
+
+  /* La tabla se desplaza lateralmente si no cabe */
+  table { display: block; overflow-x: auto; }
+}
+
+/* ---------- 13. Versión impresa ---------- */
+@media print {
+  body {
+    padding-top: 0;
+    background: #fff;
+    color: #000;
+    font-size: 12pt;
+  }
+
+  .menu,
+  .boton { display: none; } /* la navegación no sirve en papel */
+
+  .aviso {
+    display: block;          /* ahora sí se muestra */
+    text-align: center;
+    font-style: italic;
+    margin: 1rem 0;
+  }
+
+  .seccion {
+    border: 1px solid #999;
+    border-left-width: 6px;
+    break-inside: avoid;     /* no parte una sección entre páginas */
+  }
+
+  thead th {
+    background: #eee;
+    color: #000;
+  }
+
+  .pie {
+    background: none;
+    color: #000;
+    border-top: 1px solid #999;
+  }
+
+  a { color: #000; }
+}
