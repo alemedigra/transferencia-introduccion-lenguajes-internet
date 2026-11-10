@@ -3,299 +3,334 @@
    Compartida por index.html y contenido.html
    ========================================================= */
 
-/* ---------- 1. Variables (colores y medidas) ---------- */
+/* ---------- 1. Variables ---------- */
 :root {
-  --verde: #12312E;        /* color principal, texto y menú */
-  --verde-medio: #1F5750;  /* hover y encabezados de tabla */
-  --ambar: #F2A541;        /* acento */
-  --ambar-suave: #FCE9C8;  /* fondo de chips y resaltes */
-  --fondo: #F2F6F5;        /* fondo de la página */
-  --blanco: #FFFFFF;       /* fondo de tarjetas */
-  --texto-suave: #4A6560;  /* texto secundario */
-  --borde: #C9D6D2;        /* líneas y bordes */
-  --ancho: 860px;          /* ancho máximo del contenido */
-  --alto-menu: 56px;       /* alto de la barra fija */
+  --verde: #12312E;        /* color principal */
+  --verde-medio: #1F5750; /* color secundario */
+  --ambar: #F2A541;        /* color de acento */
+  --ambar-suave: #FCE9C8; /* fondo suave */
+  --fondo: #F2F6F5;       /* fondo general */
+  --blanco: #FFFFFF;      /* color blanco */
+  --texto-suave: #4A6560; /* texto secundario */
+  --borde: #C9D6D2;       /* color de bordes */
+  --ancho: 860px;         /* ancho máximo */
+  --alto-menu: 56px;      /* alto del menú */
 }
 
 /* ---------- 2. Reinicio básico ---------- */
 * {
-  box-sizing: border-box; /* el padding no agranda los elementos */
+  box-sizing: border-box; /* incluye padding y borde en el tamaño */
 }
 
 html {
-  scroll-behavior: smooth;                 /* el enlace #contacto se desplaza suave */
+  scroll-behavior: smooth; /* desplazamiento suave */
   scroll-padding-top: calc(var(--alto-menu) + 16px); /* evita que el menú tape el destino */
 }
 
 body {
-  margin: 0;
-  padding-top: var(--alto-menu); /* espacio para el menú fijo */
-  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
-  font-size: 1.0625rem;
-  line-height: 1.65;
-  color: var(--verde);
-  background: var(--fondo);
+  margin: 0; /* elimina márgenes predeterminados */
+  padding-top: var(--alto-menu); /* deja espacio para el menú */
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif; /* fuente principal */
+  font-size: 1.0625rem; /* tamaño base del texto */
+  line-height: 1.65; /* espacio entre líneas */
+  color: var(--verde); /* color de texto */
+  background: var(--fondo); /* color de fondo */
 }
 
 /* ---------- 3. Tipografía ---------- */
-h1, h2, h3 {
-  font-family: Georgia, "Times New Roman", serif; /* títulos con serif */
-  line-height: 1.2;
-  margin: 0;
+h1,
+h2,
+h3 {
+  font-family: Georgia, "Times New Roman", serif; /* fuente de títulos */
+  line-height: 1.2; /* reduce espacio vertical */
+  margin: 0; /* elimina márgenes */
 }
 
 h1 {
-  font-size: clamp(2rem, 5vw, 3rem); /* se adapta al ancho de pantalla */
-  letter-spacing: -0.01em;
+  font-size: clamp(2rem, 5vw, 3rem); /* tamaño adaptable */
+  letter-spacing: -0.01em; /* acerca ligeramente las letras */
 }
 
 h2 {
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
-  font-weight: 400;
-  color: var(--texto-suave);
-  margin-top: 0.4rem;
+  font-size: clamp(1.2rem, 3vw, 1.5rem); /* tamaño adaptable */
+  font-weight: 400; /* grosor normal */
+  color: var(--texto-suave); /* color secundario */
+  margin-top: 0.4rem; /* separación superior */
 }
 
 h3 {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
+  font-size: 1.4rem; /* tamaño fijo */
+  margin-bottom: 1rem; /* separación inferior */
 }
 
 p {
-  margin: 0.8rem 0 0;
-  max-width: 60ch; /* líneas cómodas de leer */
+  margin: 0.8rem 0 0; /* margen superior */
+  max-width: 60ch; /* ancho cómodo de lectura */
 }
 
-strong { font-weight: 700; }
-em { font-style: italic; }
+strong {
+  font-weight: 700; /* texto en negrita */
+}
+
+em {
+  font-style: italic; /* texto en cursiva */
+}
 
 a {
-  color: var(--verde-medio);
-  text-underline-offset: 3px;
+  color: var(--verde-medio); /* color de enlaces */
+  text-underline-offset: 3px; /* separa el subrayado */
 }
 
-a:hover { color: var(--verde); }
+a:hover {
+  color: var(--verde); /* cambia color al pasar el ratón */
+}
 
-/* Texto resaltado dentro del subtítulo */
+/* Texto resaltado */
 .resalte {
-  background: var(--ambar-suave);
-  color: var(--verde);
-  padding: 0 0.3em;
-  border-radius: 4px;
-  font-weight: 600;
+  background: var(--ambar-suave); /* fondo resaltado */
+  color: var(--verde); /* color del texto */
+  padding: 0 0.3em; /* espacio interior horizontal */
+  border-radius: 4px; /* esquinas redondeadas */
+  font-weight: 600; /* seminegrita */
 }
 
-/* ---------- 4. Menú de navegación fijo ---------- */
+/* ---------- 4. Menú fijo ---------- */
 .menu {
-  position: fixed;   /* se queda arriba al hacer scroll */
-  top: 0;
-  left: 0;
-  right: 0;
-  height: var(--alto-menu);
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background: var(--verde);
+  position: fixed; /* permanece visible */
+  top: 0; /* pegado arriba */
+  left: 0; /* pegado a la izquierda */
+  right: 0; /* pegado a la derecha */
+  height: var(--alto-menu); /* altura del menú */
+  z-index: 10; /* queda por encima */
+  display: flex; /* activa Flexbox */
+  align-items: center; /* centra verticalmente */
+  justify-content: center; /* centra horizontalmente */
+  gap: 0.5rem; /* espacio entre enlaces */
+  background: var(--verde); /* color de fondo */
 }
 
 .menu a {
-  color: var(--blanco);
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  border-bottom: 3px solid transparent;
+  color: var(--blanco); /* texto blanco */
+  text-decoration: none; /* elimina subrayado */
+  padding: 0.5rem 1rem; /* relleno interno */
+  border-radius: 6px; /* esquinas redondeadas */
+  font-weight: 600; /* seminegrita */
+  font-size: 0.95rem; /* tamaño del texto */
+  border-bottom: 3px solid transparent; /* borde oculto */
 }
 
 .menu a:hover {
-  background: var(--verde-medio);
-  border-bottom-color: var(--ambar);
+  background: var(--verde-medio); /* cambia fondo */
+  border-bottom-color: var(--ambar); /* muestra borde inferior */
 }
 
-/* Página actual: solo la barra ámbar, sin fondo (el hover agrega el fondo) */
 .menu a[aria-current="page"] {
-  border-bottom-color: var(--ambar);
+  border-bottom-color: var(--ambar); /* indica página actual */
 }
 
-/* Si la primera tarjeta va justo después del menú (contenido.html), separarla */
 .menu + .seccion {
-  margin-top: 2rem;
+  margin-top: 2rem; /* separa el contenido inicial */
 }
 
-/* ---------- 5. Portada (index.html) ---------- */
+/* ---------- 5. Portada ---------- */
 .portada {
-  max-width: var(--ancho);
-  margin: 0 auto;
-  padding: 3.5rem 1.25rem 2.5rem;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+  max-width: var(--ancho); /* ancho máximo */
+  margin: 0 auto; /* centrado horizontal */
+  padding: 3.5rem 1.25rem 2.5rem; /* espacio interno */
+  display: flex; /* activa Flexbox */
+  align-items: center; /* centra verticalmente */
+  gap: 2rem; /* separación entre elementos */
 }
 
 .foto {
-  width: 160px;
-  height: 160px;
-  flex-shrink: 0;          /* la imagen no se aplasta */
-  border-radius: 50%;
-  border: 6px solid var(--ambar);
-  object-fit: cover;
+  width: 160px; /* ancho de imagen */
+  height: 160px; /* alto de imagen */
+  flex-shrink: 0; /* evita reducción */
+  border-radius: 50%; /* forma circular */
+  border: 6px solid var(--ambar); /* borde decorativo */
+  object-fit: cover; /* recorta sin deformar */
 }
 
 /* ---------- 6. Secciones ---------- */
 .seccion {
-  max-width: var(--ancho);
-  margin: 0 auto 1.5rem;
-  padding: 1.75rem 1.5rem;
-  background: var(--blanco);
-  border: 1px solid var(--borde);
-  border-left: 6px solid var(--ambar); /* marca lateral de cada sección */
-  border-radius: 8px;
+  max-width: var(--ancho); /* ancho máximo */
+  margin: 0 auto 1.5rem; /* centrado y separación */
+  padding: 1.75rem 1.5rem; /* espacio interno */
+  background: var(--blanco); /* fondo blanco */
+  border: 1px solid var(--borde); /* borde general */
+  border-left: 6px solid var(--ambar); /* borde destacado */
+  border-radius: 8px; /* esquinas redondeadas */
 }
 
-/* Los dos bloques de ancho máximo no tocan los bordes en pantallas medianas */
 @media (max-width: 920px) {
-  .seccion { margin-left: 1rem; margin-right: 1rem; }
+  .seccion {
+    margin-left: 1rem; /* margen izquierdo */
+    margin-right: 1rem; /* margen derecho */
+  }
 }
 
 /* Listas */
-ul, ol {
-  margin: 0 0 1rem;
-  padding-left: 1.4rem;
+ul,
+ol {
+  margin: 0 0 1rem; /* margen inferior */
+  padding-left: 1.4rem; /* sangría */
 }
 
-li { margin-bottom: 0.4rem; }
+li {
+  margin-bottom: 0.4rem; /* espacio entre elementos */
+}
 
-li::marker { color: var(--ambar); font-weight: 700; }
+li::marker {
+  color: var(--ambar); /* color de viñeta */
+  font-weight: 700; /* viñeta destacada */
+}
 
-/* ---------- 7. Botón (enlace con apariencia de botón) ---------- */
+/* ---------- 7. Botón ---------- */
 .boton {
-  display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.7rem 1.4rem;
-  background: var(--verde);
-  color: var(--blanco);
-  font-weight: 700;
-  text-decoration: none;
-  border-radius: 8px;
+  display: inline-block; /* permite tamaño personalizado */
+  margin-top: 0.5rem; /* separación superior */
+  padding: 0.7rem 1.4rem; /* relleno interno */
+  background: var(--verde); /* color de fondo */
+  color: var(--blanco); /* color del texto */
+  font-weight: 700; /* negrita */
+  text-decoration: none; /* sin subrayado */
+  border-radius: 8px; /* esquinas redondeadas */
 }
 
 .boton:hover {
-  background: var(--ambar);
-  color: var(--verde);
+  background: var(--ambar); /* cambia fondo */
+  color: var(--verde); /* cambia texto */
 }
 
-/* ---------- 8. Etiquetas (chips de habilidades) ---------- */
+/* ---------- 8. Etiquetas ---------- */
 .etiqueta {
-  display: inline-block;
-  margin: 0 0.4rem 0.5rem 0;
-  padding: 0.25rem 0.85rem;
-  background: var(--ambar-suave);
-  color: var(--verde);
-  border: 1px solid var(--ambar);
+  display: inline-block; /* permite varias en línea */
+  margin: 0 0.4rem 0.5rem 0; /* separación externa */
+  padding: 0.25rem 0.85rem; /* espacio interno */
+  background: var(--ambar-suave); /* fondo suave */
+  color: var(--verde); /* color de texto */
+  border: 1px solid var(--ambar); /* borde visible */
   border-radius: 999px; /* forma de píldora */
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 0.95rem; /* tamaño del texto */
+  font-weight: 600; /* seminegrita */
 }
 
-/* ---------- 9. Tabla (contenido.html) ---------- */
+/* ---------- 9. Tabla ---------- */
 table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.98rem;
+  width: 100%; /* ocupa todo el ancho */
+  border-collapse: collapse; /* une bordes */
+  font-size: 0.98rem; /* tamaño de texto */
 }
 
-th, td {
-  padding: 0.75rem 1rem;
-  text-align: left;
-  border-bottom: 1px solid var(--borde);
+th,
+td {
+  padding: 0.75rem 1rem; /* espacio interno */
+  text-align: left; /* alinea a la izquierda */
+  border-bottom: 1px solid var(--borde); /* línea divisoria */
 }
 
 thead th {
-  background: var(--verde);
-  color: var(--blanco);
+  background: var(--verde); /* fondo encabezado */
+  color: var(--blanco); /* texto blanco */
 }
 
-tbody tr:hover { background: var(--ambar-suave); }
+tbody tr:hover {
+  background: var(--ambar-suave); /* resalta la fila */
+}
 
 /* ---------- 10. Línea divisoria ---------- */
 hr {
-  max-width: var(--ancho);
-  margin: 2rem auto;
-  border: 0;
-  border-top: 2px dashed var(--borde);
+  max-width: var(--ancho); /* ancho máximo */
+  margin: 2rem auto; /* centrado vertical */
+  border: 0; /* elimina borde normal */
+  border-top: 2px dashed var(--borde); /* línea punteada */
 }
 
-/* ---------- 11. Aviso de impresión y pie ---------- */
+/* ---------- 11. Aviso y pie ---------- */
 .aviso {
-  display: none; /* en pantalla no se ve; solo al imprimir */
+  display: none; /* oculto en pantalla */
 }
 
 .pie {
-  margin-top: 3rem;
-  padding: 1.5rem 1rem;
-  text-align: center;
-  background: var(--verde);
-  color: var(--blanco);
-  font-size: 0.95rem;
+  margin-top: 3rem; /* separación superior */
+  padding: 1.5rem 1rem; /* espacio interno */
+  text-align: center; /* centra el texto */
+  background: var(--verde); /* fondo oscuro */
+  color: var(--blanco); /* texto blanco */
+  font-size: 0.95rem; /* tamaño del texto */
 }
 
-/* ---------- 12. Responsive (celulares) ---------- */
+/* ---------- 12. Responsive ---------- */
 @media (max-width: 600px) {
   .portada {
-    flex-direction: column; /* foto arriba, texto abajo */
-    text-align: center;
-    padding-top: 2.5rem;
+    flex-direction: column; /* coloca elementos en columna */
+    text-align: center; /* centra texto */
+    padding-top: 2.5rem; /* reduce espacio superior */
   }
 
-  .foto { width: 130px; height: 130px; }
-
-  .menu { gap: 0; }
-  .menu a { padding: 0.5rem 0.6rem; font-size: 0.85rem; }
-
-  .seccion { padding: 1.25rem 1rem; }
-
-  /* La tabla se desplaza lateralmente si no cabe */
-  table { display: block; overflow-x: auto; }
-}
-
-/* ---------- 13. Versión impresa ---------- */
-@media print {
-  body {
-    padding-top: 0;
-    background: #fff;
-    color: #000;
-    font-size: 12pt;
+  .foto {
+    width: 130px; /* ancho menor */
+    height: 130px; /* alto menor */
   }
 
-  .menu,
-  .boton { display: none; } /* la navegación no sirve en papel */
+  .menu {
+    gap: 0; /* elimina separación */
+  }
 
-  .aviso {
-    display: block;          /* ahora sí se muestra */
-    text-align: center;
-    font-style: italic;
-    margin: 1rem 0;
+  .menu a {
+    padding: 0.5rem 0.6rem; /* reduce relleno */
+    font-size: 0.85rem; /* reduce tamaño */
   }
 
   .seccion {
-    border: 1px solid #999;
-    border-left-width: 6px;
-    break-inside: avoid;     /* no parte una sección entre páginas */
+    padding: 1.25rem 1rem; /* reduce espacio interno */
+  }
+
+  table {
+    display: block; /* permite desplazamiento */
+    overflow-x: auto; /* scroll horizontal */
+  }
+}
+
+/* ---------- 13. Impresión ---------- */
+@media print {
+  body {
+    padding-top: 0; /* elimina espacio del menú */
+    background: #fff; /* fondo blanco */
+    color: #000; /* texto negro */
+    font-size: 12pt; /* tamaño para impresión */
+  }
+
+  .menu,
+  .boton {
+    display: none; /* oculta elementos innecesarios */
+  }
+
+  .aviso {
+    display: block; /* muestra aviso */
+    text-align: center; /* centra el texto */
+    font-style: italic; /* cursiva */
+    margin: 1rem 0; /* margen vertical */
+  }
+
+  .seccion {
+    border: 1px solid #999; /* borde gris */
+    border-left-width: 6px; /* conserva borde lateral */
+    break-inside: avoid; /* evita cortes de sección */
   }
 
   thead th {
-    background: #eee;
-    color: #000;
+    background: #eee; /* gris claro */
+    color: #000; /* texto negro */
   }
 
   .pie {
-    background: none;
-    color: #000;
-    border-top: 1px solid #999;
+    background: none; /* elimina fondo */
+    color: #000; /* texto negro */
+    border-top: 1px solid #999; /* línea superior */
   }
 
-  a { color: #000; }
+  a {
+    color: #000; /* enlaces negros */
+  }
 }
